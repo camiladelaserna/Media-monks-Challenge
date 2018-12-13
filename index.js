@@ -136,8 +136,7 @@ function appendWhatScreen() {
     text.innerHTML = i + 1
     text.id = "textP"
     innerBox.appendChild(text);
-
-    function goToScreen() {
+    innerBox.onclick = function goToScreen() {
       if (text.innerHTML == i - 1) {
         screen = i + 1
       }

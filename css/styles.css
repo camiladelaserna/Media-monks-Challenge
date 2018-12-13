@@ -188,7 +188,7 @@ footer .logo img {
 }
 .whatScreen #box {
   height: 100%;
-  width: 20px;
+  width: 16px;
   border-right: 2px white dotted;
   display: flex;
   justify-content: center;
@@ -200,12 +200,12 @@ footer .logo img {
 }
 .whatScreen .last {
   height: auto;
-  width: 20px;
+  width: 16px;
 }
 
 #first {
   height: 100%;
-  width: 20px;
+  width: 16px;
   border-right: 2px white dotted;
 }
 
