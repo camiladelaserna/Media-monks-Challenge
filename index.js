@@ -140,8 +140,6 @@ function appendWhatScreen() {
     function goToScreen() {
       if (text.innerHTML == i - 1) {
         screen = i + 1
-        console.log(screen);
-        
       }
     }
     
