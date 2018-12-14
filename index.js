@@ -20,6 +20,7 @@ const totalOffset = 495;
 const totalScreens = 9;
 const screenOffset = 495 / totalScreens;
 
+// -----------------------------------------------------------------------
 // Setting phrases--------------------------------------------------------
 
 const phrases = [
@@ -34,15 +35,36 @@ const phrases = [
 ];
 
 // -----------------------------------------------------------------------
+// Show page--------------------------------------------------------------
+
+setTimeout(function(){ 
+  loading.style.display = "none";
+   hide.style.display = "block";
+   appendWhatScreen()
+ }, 3000);
+
+ // -----------------------------------------------------------------------
+ // Animate dynamic phrases------------------------------------------------
+
+ function changeOpacity() {
+  phrase.classList.remove('in');
+  phrase.classList.add('out');
+  setTimeout(() => {
+    phrase.classList.remove('out');
+    phrase.classList.add('in');
+  }, 1);
+}
 // Phrase assignation------------------------------------------------------
 
 function phraseAssignation() {
+
+  changeOpacity()
+
   phrase.innerHTML = "";
   for (let i = 0; i < phrases.length; i++) {
     let pos = i;
     if ((pos + 1) == screen) {
       phrase.innerHTML = phrases[i]
-      // phrase.style.opacity = 1;
     }
   }
 };
@@ -64,6 +86,7 @@ function phraseJustification() {
 function rightButtonVisibility() {
   if (screen != totalScreens) {
     buttonRight.style.display = "block";
+    final.style.display = "none";
   } else {
     buttonRight.style.display = "none";
     final.style.display = "flex";
@@ -82,17 +105,44 @@ function backgroundAnimation() {
 
 function right() {
   screen++
+  moveSlide()
 
+};
+
+// -----------------------------------------------------------------------
+// Move to screen---------------------------------------------------------
+
+function moveSlide() {
   if (screen >= 1) {
     info.classList.remove ("home")
     buttonLeft.style.display = "block";
-  } 
+  } else {
+    info.classList.add ("home")
+    buttonLeft.style.display = "none";
+  }
 
   backgroundAnimation()
   rightButtonVisibility()
   phraseAssignation()
   phraseJustification()
+}
 
+// -----------------------------------------------------------------------
+// To first sceen---------------------------------------------------------
+
+function toFirst() {
+  console.log(123);
+   screen = 0;
+   moveSlide()
+};
+
+// -----------------------------------------------------------------------
+// To last screen---------------------------------------------------------
+
+function toLast() {
+  console.log(123);
+  screen = phrases.length + 1;
+  moveSlide()
 };
 
 // -----------------------------------------------------------------------
@@ -101,47 +151,27 @@ function right() {
 function left() {
   screen--
 
-   if (screen < 1) {
-    info.classList.add ("home")
-    buttonLeft.style.display = "none"; 
-  } 
-
-  backgroundAnimation()
-  rightButtonVisibility()
-  phraseAssignation()
-  phraseJustification()
+  moveSlide()
 };
 
 // -----------------------------------------------------------------------
-// Show page--------------------------------------------------------------
-
- setTimeout(function(){ 
-  loading.style.display = "none";
-   hide.style.display = "block";
-   appendWhatScreen()
- }, 3000);
-
- // -----------------------------------------------------------------------
 // Appending screen guide-------------------------------------------------
 function appendWhatScreen() {
-  for (var i = 0; i < phrases.length; i++) {
+  for (let i = 0; i < phrases.length; i++) {
     let outerBox = document.createElement("div");
     outerBox.id = "box";
     whatScreenDin.appendChild(outerBox);
     let innerBox = document.createElement("div");
-    innerBox.id = "innerBox";
-    innerBox.onclick = "goToScreen()";
+    innerBox.className = "innerBox";
     outerBox.appendChild(innerBox);
     let text = document.createElement("p");
     text.innerHTML = i + 1
     text.id = "textP"
     innerBox.appendChild(text);
-    innerBox.onclick = function goToScreen() {
-      if (text.innerHTML == i - 1) {
+    outerBox.onclick = function goToScreen() {
         screen = i + 1
-      }
+        moveSlide()
     }
-    
   }
 };
 

@@ -22,6 +22,34 @@ body {
   background-color: black;
 }
 
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+#loading div {
+  width: auto;
+  height: auto;
+}
+#loading .imgBoxOut {
+  width: 80%;
+  height: auto;
+  position: relative;
+}
+#loading .imgBoxOut img {
+  width: 100%;
+}
+
+.imgText {
+  display: flex;
+  justify-content: center;
+}
+.imgText .text {
+  margin-top: 20%;
+}
+
 #background {
   height: 100%;
   width: auto;
@@ -32,10 +60,11 @@ body {
 }
 #background img {
   height: 100%;
+  width: initial;
 }
 
 .info {
-  height: 100vh;
+  height: 85vh;
   width: 100vw;
   position: fixed;
   z-index: 1;
@@ -60,6 +89,13 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.titleAdj {
+  padding: 2% 2% 0 2%;
+}
+
+.footAdj {
   padding: 2% 2% 0 2%;
 }
 
@@ -68,7 +104,6 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  padding: 0 2% 2% 2%;
 }
 
 .phraseStyle {
@@ -89,15 +124,23 @@ body {
   padding: 0 6% 0 6%;
   height: 85vh;
 }
-
-.fa-chevron-left {
-  font-size: 35px;
-  color: white;
+#phraseBox #phrase {
+  margin-top: 11%;
 }
 
-.fa-chevron-right {
-  font-size: 35px;
+.in {
+  -webkit-transition: all 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.out {
+  opacity: 0;
+}
+
+p {
+  font-family: "klavikaLight";
   color: white;
+  font-size: 9px;
 }
 
 button {
@@ -107,57 +150,37 @@ button {
   cursor: pointer;
   outline: none;
 }
-
-p {
-  font-family: "klavikaLight";
+button .fa-chevron-left {
+  font-size: 35px;
   color: white;
-  font-size: 9px;
 }
-
-.fa-facebook-f {
+button .fa-chevron-right {
+  font-size: 35px;
   color: white;
-  font-size: 9px;
-}
-
-.fa-twitter {
-  color: white;
-  font-size: 9px;
-}
-
-.fa-envelope {
-  color: white;
-  font-size: 9px;
 }
 
 .arrows {
   height: 85vh;
   width: 100vw;
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
 }
 
-#boxLeft {
+.buttonBox {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 0 2% 0 2%;
 }
 
-#boxRight {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 2% 0 2%;
+#buttonLeft {
+  display: none;
 }
 
 #buttonRight {
   display: block;
-}
-
-#buttonLeft {
-  display: none;
 }
 
 footer {
@@ -166,6 +189,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 5;
 }
 footer .logo {
   width: 5%;
@@ -194,13 +218,28 @@ footer .logo img {
   justify-content: center;
   align-items: center;
 }
-.whatScreen #box #innerbox {
+
+.last {
+  height: 100%;
+  width: 16px;
+}
+
+.innerBox {
   height: 95%;
   width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-.whatScreen .last {
-  height: auto;
-  width: 16px;
+
+.innerBox:hover {
+  background-color: white;
+}
+
+#textP {
+  margin: 0;
+  cursor: pointer;
 }
 
 #first {
@@ -220,10 +259,9 @@ footer .logo img {
   display: none;
   justify-content: flex-end;
   align-items: flex-start;
-  height: 100%;
+  height: 85vh;
   width: 100%;
   position: absolute;
-  z-index: 3;
 }
 #final .finalBox {
   margin: 2% 2% 0 0;
@@ -268,43 +306,26 @@ footer .logo img {
   align-items: center;
 }
 
-#loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-}
-#loading div {
-  width: auto;
-  height: auto;
-}
-#loading .imgBoxOut {
-  width: 80%;
-  height: auto;
-  position: relative;
-}
-#loading .imgBoxOut img {
-  width: 100%;
+.fa-facebook-f {
+  color: white;
+  font-size: 9px;
 }
 
-.imgText {
-  display: flex;
-  justify-content: center;
+.fa-twitter {
+  color: white;
+  font-size: 9px;
 }
-.imgText .text {
-  margin-top: 20%;
+
+.fa-envelope {
+  color: white;
+  font-size: 9px;
 }
 
 .text p {
   overflow: hidden;
-  /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid white;
-  /* The typwriter cursor */
   white-space: nowrap;
-  /* Keeps the content on a single line */
   margin: 0 auto;
-  /* Gives that scrolling effect as the typing happens */
   animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 

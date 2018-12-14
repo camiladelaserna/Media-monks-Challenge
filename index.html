@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   <link rel="icon" type="image/ico" href= "img/favicon.ico">
@@ -22,25 +23,29 @@
     </div>
   </div>
   <div id="hide">
-    <div id="background">
-      <img src="img/background.jpg" alt="">
+    <div id ="background">
+      <img id = "backImg" src="img/background.jpg" alt="">
     </div>
     <div class="arrows">
-      <div id="boxLeft">
+      <div class="buttonBox">
         <button id="buttonLeft" onclick="left()"><i class="fas fa-chevron-left"></i></button>
       </div>
-      <div id="boxRight">
+      <div class="buttonBox">
         <button id="buttonRight" onclick="right()"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
     <div class="info home">
       <div id="homeInfo">
         <div class="title">
-          <h1 class="phraseStyle">WE ARE BREAKING<br/>OUR VOW<br/>OF SILENCE</h1>
+          <div class="titleAdj">
+            <h1 class="phraseStyle center">WE ARE BREAKING<br/>OUR VOW<br/>OF SILENCE</h1>
+        </div>
         </div>
         <div class="footNote">
-          <p>In january 2011, after a decade of digital, we opened 
-          the doors to our temple.<br/>Follow our noble eightfold path to digital enlightenment here.</p>
+          <div class="footAdj">
+            <p>In january 2011, after a decade of digital, we opened 
+            the doors to our temple.<br/>Follow our noble eightfold path to digital enlightenment here.</p>
+        </div>
         </div>
       </div>
     </div>
@@ -68,13 +73,13 @@
         </div>
     </div>
       <div Class="phraseStyle" id="phraseBox">
-        <h3 id="phrase"></h3>
+          <h3 id="phrase" Class="phraseSize in"></h3>
       </div>
       <footer>
         <div class="whatScreen">
-          <div id="first" id="box"></div>
+          <div id="first" id="box" onclick="toFirst()"><div class="innerBox"></div></div>
           <div id="dynamic"></div>
-          <div id="last" class="last"></div>
+          <div id="last" class="last" onclick="toLast()"><div class="innerBox"></div></div>
         </div>
         <div class="logo">
           <img src="img/logo.svg" alt="">

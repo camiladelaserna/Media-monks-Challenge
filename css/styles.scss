@@ -1,3 +1,4 @@
+// Typography-----------------------------------------------------------------------------
 @font-face {
   font-family: "klavikaLight";
   src: url("../fonts/klavika-light-webfont.woff");
@@ -17,6 +18,8 @@
   font-family: "klavikaBold";
   src: url("../fonts/klavika-bold-webfont.woff");
 }
+// ---------------------------------------------------------------------------------------
+// Body-----------------------------------------------------------------------------------
 
 body {
   margin: 0px;
@@ -25,6 +28,40 @@ body {
   overflow: hidden;
   background-color: black;
 }
+
+// ---------------------------------------------------------------------------------------
+// Loading page---------------------------------------------------------------------------
+
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+    div {
+      width: auto;
+      height: auto;
+    }
+    .imgBoxOut {
+      width: 80%;
+      height: auto;
+      position: relative;
+        img {
+          width: 100%;
+        }
+    }
+}
+
+.imgText {
+  display: flex;
+  justify-content: center;
+    .text {
+      margin-top: 20%;
+    }
+}
+
+// ---------------------------------------------------------------------------------------
+// Main page - landing--------------------------------------------------------------------
 
 #background {
   height: 100%;
@@ -35,11 +72,12 @@ body {
   left: 0%;
     img {
       height: 100%;
+      width: initial;
     }
 }
 
 .info {
-  height: 100vh;
+  height: 85vh;
   width: 100vw;
   position: fixed;
   z-index: 1;
@@ -66,7 +104,16 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 2% 2% 0 2%; 
+  // padding: 2% 2% 0 2%; 
+  // margin: 2% 2% 0 2%; 
+}
+
+.titleAdj {
+  padding: 2% 2% 0 2%;
+}
+
+.footAdj {
+  padding: 2% 2% 0 2%;
 }
 
 .footNote {
@@ -74,7 +121,8 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  padding: 0 2% 2% 2%; 
+  // padding: 0 2% 2% 2%; 
+  // margin: 2% 2% 0 2%; 
 }
 
 .phraseStyle{
@@ -94,24 +142,18 @@ body {
   align-items: center;
   padding: 0 6% 0 6%; 
   height: 85vh;
+    #phrase{
+      margin-top: 11%;
+     }
 }
 
-.fa-chevron-left {
-  font-size: 35px;
-  color: white;
+.in {
+  -webkit-transition: all 0.5s ease-in-out;
+  opacity: 1;
 }
 
-.fa-chevron-right {
-  font-size: 35px;
-  color: white;
-}
-
-button {
-  background: none;
-	border: none;
-	padding: 0;
-  cursor: pointer;
-  outline: none;
+.out {
+  opacity: 0;
 }
 
 p{
@@ -120,51 +162,52 @@ p{
   font-size: 9px;
 }
 
-.fa-facebook-f {
-  color: white;
-  font-size: 9px;
-}
+// ---------------------------------------------------------------------------------------
+// Buttons--------------------------------------------------------------------------------
 
-.fa-twitter {
-  color: white;
-  font-size: 9px;
-}
-
-.fa-envelope {
-  color: white;
-  font-size: 9px;
-}
+button {
+  background: none;
+	border: none;
+	padding: 0;
+  cursor: pointer;
+  outline: none;
+    .fa-chevron-left {
+      font-size: 35px;
+      color: white;
+    }
+    .fa-chevron-right {
+      font-size: 35px;
+      color: white;
+    }
+};
 
 .arrows {
   height: 85vh;
   width: 100vw;
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
 }
 
-#boxLeft {
+
+.buttonBox {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 0 2% 0 2%;
 }
 
-#boxRight {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 2% 0 2%; 
+#buttonLeft {
+  display: none
 }
 
 #buttonRight {
   display: block;
 }
 
-#buttonLeft {
-  display: none
-}
+// ---------------------------------------------------------------------------------------
+// Footer---------------------------------------------------------------------------------
 
 footer{
   height: 15vh;
@@ -172,6 +215,7 @@ footer{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 5;
     .logo{
       width: 5%;
       height: auto;
@@ -182,6 +226,9 @@ footer{
       }
     }
 }
+
+// ---------------------------------------------------------------------------------------
+// Dynamic screen indicator---------------------------------------------------------------
 
 .whatScreen{
   width: auto;
@@ -198,16 +245,32 @@ footer{
       display: flex;
       justify-content: center;
       align-items: center;
-        #innerbox{
-           height: 95%;
-           width: 90%;
-        }
-    }
-    .last{
-      height: auto;
-      width: 16px;
+
     }
 }
+
+.last{
+  height: 100%;
+  width: 16px;
+}
+.innerBox{
+  height: 95%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.innerBox:hover { 
+ background-color: white;
+}
+
+#textP {
+  margin:0;
+  cursor: pointer;
+}
+
+
 
 #first{
   height: 100%;
@@ -222,14 +285,17 @@ footer{
   height: 100%;
 }
 
+// ---------------------------------------------------------------------------------------
+// Final screen---------------------------------------------------------------------------
+
 #final {
   display: none;
   justify-content: flex-end;
   align-items: flex-start;
-  height: 100%;
+  height: 85vh;
   width: 100%;
   position: absolute;
-  z-index: 3;
+  // z-index: 2;
     .finalBox{
       margin: 2% 2% 0 0;
       height: 50%;
@@ -274,39 +340,29 @@ footer{
     }
 }
 
-#loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-    div {
-      width: auto;
-      height: auto;
-    }
-    .imgBoxOut {
-      width: 80%;
-      height: auto;
-      position: relative;
-        img {
-          width: 100%;
-        }
-    }
+.fa-facebook-f {
+  color: white;
+  font-size: 9px;
 }
 
-.imgText {
-  display: flex;
-  justify-content: center;
-    .text {
-      margin-top: 20%;
-    }
+.fa-twitter {
+  color: white;
+  font-size: 9px;
 }
+
+.fa-envelope {
+  color: white;
+  font-size: 9px;
+}
+
+// ---------------------------------------------------------------------------------------
+// Animations - Typewritter---------------------------------------------------------------
 
 .text p {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid white; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  overflow: hidden; 
+  border-right: .15em solid white; 
+  white-space: nowrap; 
+  margin: 0 auto; 
   animation: 
     typing 2s steps(40, end),
     blink-caret .75s step-end infinite;
@@ -322,6 +378,9 @@ footer{
   from, to { border-color: transparent }
   50% { border-color: white; }
 }
+
+// ---------------------------------------------------------------------------------------
+// Animations - Floating------------------------------------------------------------------
 
 .imgBox {
   animation: MoveUpDown 1s linear infinite;
@@ -340,7 +399,91 @@ footer{
   }
 }
 
+// ---------------------------------------------------------------------------------------
+// Hide div-------------------------------------------------------------------------------
+
 #hide {
   display: none;
 }
 
+// ---------------------------------------------------------------------------------------
+
+// @media (max-width: 600px) {
+//   #background {
+//     height: 30%;
+//   }
+
+//   .title{
+//     margin-top: 60%;
+//     height: 21%;
+//     // text-align: center;
+//     display: flex;
+//     justify-content: center;
+//     background-color: #0d0d0d;
+//   }
+
+//   .phraseStyle{
+//     height: 20vh;
+//     font-size: 25px;
+//   }
+
+//   .center {
+//     display: flex;
+//     justify-content: center;
+//   }
+
+//   .phraseSize {
+//     font-size: 25px;
+//   }
+  
+//   .phrase{
+//     font-size: 25px;
+//   }
+
+//   .media {
+//     display: flex;
+//     align-items: flex-start;
+//     justify-content: center;
+//     width: 100%;
+//     margin-top: 20%;
+//     background-color: #0d0d0d;
+
+//   }
+
+//   #phraseBox {
+
+//     justify-content: flex-start;
+//     align-items: center;
+//     padding: 0;
+//   }
+
+//   .footNote {
+//     align-items: flex-start;
+//     justify-content: center;
+//     text-align: center;
+//     margin-top: 27%;
+//   }
+
+//   footer{
+//       .logo{
+//         width: 15%;
+//         margin: 0 5% 0 0;
+//       }
+//   }
+
+//   .whatScreen{
+//     border: 1px white dotted;
+//       #box{
+//         border-right: 1.5px white dotted;
+//       }
+//   }
+  
+//   #first{
+//     border-right: 1.5px white dotted;
+//   }
+
+//   #fraseBox {
+//     justify-content: center;
+//   }
+
+// }
